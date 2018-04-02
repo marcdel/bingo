@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-xs-8 col-md-4 col-xs-offset-2 col-md-offset-4">
+    <div class="input-group">
+      <input id="game-url" class="form-control"
+             value="<%= current_game_url(@conn) %>" readonly>
+      <div class="input-group-btn">
+        <button id="copy-game-url" class="btn btn-primary"
+                data-clipboard-target="#game-url">
+          <i class="fa fa-paste"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="game-container" 
+     data-game-name="<%= @game_name %>"
+     data-auth-token="<%= @auth_token %>"
+     data-ws-url="<%= ws_url() %>">
+</div>
+
+<div class="row">
+  <div class="col-xs-8">
+    <div class="form-group">
+      <%= button("New Game", to: game_path(@conn, :new), 
+                  method: :get, 
+                  class: "btn btn-primary center-block") %> 
+    </div>
+  </div>
+</div>
